@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using SpaceInvaders.Interfaces;
 
-namespace SpaceInvaders
+namespace SpaceInvaders.Game
 {
     public class Game : IGame
     {

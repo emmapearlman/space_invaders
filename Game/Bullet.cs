@@ -1,7 +1,7 @@
 using System;
 using System.Drawing;
 
-namespace SpaceInvaders
+namespace SpaceInvaders.Game
 {
     public class Bullet : GameObject
     {

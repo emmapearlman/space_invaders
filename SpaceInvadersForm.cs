@@ -1,6 +1,8 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using SpaceInvaders.Game;
+using SpaceInvaders.Interfaces;
 
 namespace SpaceInvaders
 {
@@ -16,7 +18,7 @@ namespace SpaceInvaders
             this.DoubleBuffered = true;
             this.KeyPreview = true;
 
-            game = new Game(this.ClientSize);
+            game = new Game.Game(this.ClientSize);
             gameTimer = new System.Windows.Forms.Timer { Interval = 16 };
             gameTimer.Tick += GameTimer_Tick;
             gameTimer.Start();

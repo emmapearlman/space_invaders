@@ -1,7 +1,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace SpaceInvaders
+namespace SpaceInvaders.Interfaces
 {
     public interface IGame
     {

@@ -1,6 +1,6 @@
 using System.Drawing;
 
-namespace SpaceInvaders
+namespace SpaceInvaders.Interfaces
 {
     public interface IGameObject
     {

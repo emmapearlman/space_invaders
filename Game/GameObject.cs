@@ -1,6 +1,7 @@
 using System.Drawing;
+using SpaceInvaders.Interfaces;
 
-namespace SpaceInvaders
+namespace SpaceInvaders.Game
 {
     public abstract class GameObject : IGameObject
     {

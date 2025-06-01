@@ -1,7 +1,7 @@
 using System;
 using System.Drawing;
 
-namespace SpaceInvaders
+namespace SpaceInvaders.Game
 {
     public enum EnemyType
     {
@@ -10,30 +10,25 @@ namespace SpaceInvaders
         Large = 3
     }
 
-    public class Enemy : IGameObject
+    public class Enemy : GameObject
     {
-        public Point Position { get; private set; }
         public EnemyType Type { get; }
-        private Size size;
-        private int speed;
         private bool movingRight;
         private int moveDownDistance;
 
-        public Enemy(Point position, EnemyType type)
+        public Enemy(Point position, EnemyType type) 
+            : base(position, new Size(30, 20), 2)
         {
-            Position = position;
             Type = type;
-            size = new Size(30, 20);
-            speed = 2;
             movingRight = true;
             moveDownDistance = 20;
         }
 
-        public void Update()
+        public override void Update()
         {
             if (movingRight)
             {
-                Position = new Point(Position.X + speed, Position.Y);
+                Position = new Point(Position.X + Speed, Position.Y);
                 if (Position.X > 770) // 800 - 30 (width)
                 {
                     Position = new Point(Position.X, Position.Y + moveDownDistance);
@@ -42,7 +37,7 @@ namespace SpaceInvaders
             }
             else
             {
-                Position = new Point(Position.X - speed, Position.Y);
+                Position = new Point(Position.X - Speed, Position.Y);
                 if (Position.X < 0)
                 {
                     Position = new Point(Position.X, Position.Y + moveDownDistance);
@@ -51,7 +46,7 @@ namespace SpaceInvaders
             }
         }
 
-        public void Draw(Graphics g)
+        public override void Draw(Graphics g)
         {
             Brush enemyBrush = Type switch
             {
@@ -61,9 +56,7 @@ namespace SpaceInvaders
                 _ => Brushes.White
             };
 
-            g.FillRectangle(enemyBrush, new Rectangle(Position, size));
+            g.FillRectangle(enemyBrush, new Rectangle(Position, Size));
         }
-
-        public Rectangle Bounds => new Rectangle(Position, size);
     }
 } 
