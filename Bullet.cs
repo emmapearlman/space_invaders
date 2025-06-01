@@ -3,31 +3,24 @@ using System.Drawing;
 
 namespace SpaceInvaders
 {
-    public class Bullet : IGameObject
+    public class Bullet : GameObject
     {
-        public Point Position { get; private set; }
-        private Size size;
-        private int speed;
         private bool isPlayerBullet;
 
-        public Bullet(Point position, bool isPlayerBullet)
+        public Bullet(Point position, bool isPlayerBullet) 
+            : base(position, new Size(4, 10), isPlayerBullet ? 7 : 5)
         {
-            Position = position;
-            size = new Size(4, 10);
-            speed = isPlayerBullet ? 7 : 5;
             this.isPlayerBullet = isPlayerBullet;
         }
 
-        public void Update()
+        public override void Update()
         {
-            Position = new Point(Position.X, Position.Y + (isPlayerBullet ? -speed : speed));
+            Position = new Point(Position.X, Position.Y + (isPlayerBullet ? -Speed : Speed));
         }
 
-        public void Draw(Graphics g)
+        public override void Draw(Graphics g)
         {
-            g.FillRectangle(Brushes.White, new Rectangle(Position, size));
+            g.FillRectangle(Brushes.White, new Rectangle(Position, Size));
         }
-
-        public Rectangle Bounds => new Rectangle(Position, size);
     }
 } 
