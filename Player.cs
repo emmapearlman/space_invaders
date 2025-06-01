@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace SpaceInvaders
 {
-    public class Player
+    public class Player : IGameObject
     {
         public Point Position { get; private set; }
         public bool MoveLeft { get; set; }

@@ -10,7 +10,7 @@ namespace SpaceInvaders
         Large = 3
     }
 
-    public class Enemy
+    public class Enemy : IGameObject
     {
         public Point Position { get; private set; }
         public EnemyType Type { get; }

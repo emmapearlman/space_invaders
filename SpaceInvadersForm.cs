@@ -6,7 +6,7 @@ namespace SpaceInvaders
 {
     public class SpaceInvadersForm : Form
     {
-        private Game game;
+        private IGame game;
         private System.Windows.Forms.Timer gameTimer;
 
         public SpaceInvadersForm()

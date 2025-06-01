@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace SpaceInvaders
 {
-    public class Bullet
+    public class Bullet : IGameObject
     {
         public Point Position { get; private set; }
         private Size size;

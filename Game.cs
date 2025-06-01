@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace SpaceInvaders
 {
-    public class Game
+    public class Game : IGame
     {
         private Player player;
         private List<Enemy> enemies;
