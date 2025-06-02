@@ -14,7 +14,7 @@ namespace SpaceInvaders.Game
         public Player(Point position) 
             : base(position, new Size(40, 20), 5)
         {
-            lastShotTime = DateTime.Now;
+            lastShotTime = DateTime.MinValue; // Initialize to allow first shot immediately
             shotCooldown = 250; // milliseconds
         }
 
@@ -33,10 +33,12 @@ namespace SpaceInvaders.Game
 
         public void Shoot(System.Collections.Generic.List<Bullet> bullets)
         {
-            if ((DateTime.Now - lastShotTime).TotalMilliseconds >= shotCooldown)
+            var now = DateTime.Now;
+            if ((now - lastShotTime).TotalMilliseconds >= shotCooldown)
             {
-                bullets.Add(new Bullet(new Point(Position.X + Size.Width / 2, Position.Y), true));
-                lastShotTime = DateTime.Now;
+                var bulletPosition = new Point(Position.X + Size.Width / 2, Position.Y);
+                bullets.Add(new Bullet(bulletPosition, true));
+                lastShotTime = now;
             }
         }
     }
