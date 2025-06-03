@@ -5,7 +5,7 @@ namespace SpaceInvaders.Game
 {
     public abstract class GameObject : IGameObject
     {
-        public Point Position { get; protected set; }
+        public Point Position { get; set; }
         protected Size Size { get; set; }
         protected int Speed { get; set; }
 
